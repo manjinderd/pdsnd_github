@@ -177,6 +177,9 @@ def display_rows(df):
     
     Args:
         df (DataFrame): The DataFrame from which rows are displayed.
+    
+    Returns:
+        bool: True if the user wants to restart the kernel, False otherwise.
     """
     row_counter = 0
     total_rows = len(df)
@@ -184,34 +187,34 @@ def display_rows(df):
     while row_counter < total_rows:
         show_rows = input("Do you want to check the first 5 rows of the dataset related to the chosen city? (yes/no): ").strip().lower()
         
-        if show_rows == 'yes':
+        if show_rows != 'yes':
+            return ask_for_restart()
+        
+        while row_counter < total_rows:
             print(df.iloc[row_counter:row_counter + 5])
             row_counter += 5
-            
-            while row_counter < total_rows:
-                more_rows = input("Do you want to check another 5 rows of the dataset? (yes/no): ").strip().lower()
-                if more_rows == 'yes':
-                    print(df.iloc[row_counter:row_counter + 5])
-                    row_counter += 5
-                else:
-                    restart_kernel = input("Do you want to restart the kernel? (yes/no): ").strip().lower()
-                    if restart_kernel == 'yes':
-                        return True  # Restart kernel
-                    else:
-                        return False  # Exit
-        else:
-            restart_kernel = input("Do you want to restart the kernel? (yes/no): ").strip().lower()
-            if restart_kernel == 'yes':
-                return True  # Restart kernel
-            else:
-                return False  # Exit
+
+            if row_counter >= total_rows:
+                break
+
+            more_rows = input("Do you want to check another 5 rows of the dataset? (yes/no): ").strip().lower()
+            if more_rows != 'yes':
+                return ask_for_restart()
 
     # After all rows are displayed
-    restart_kernel = input("You have reached the end of the dataset. Do you want to restart the kernel? (yes/no): ").strip().lower()
-    if restart_kernel == 'yes':
-        return True  # Restart kernel
-    else:
-        return False  # Exit
+    print("You have reached the end of the dataset.")
+    return ask_for_restart()
+
+def ask_for_restart():
+    """
+    Asks the user if they want to restart the kernel.
+
+    Returns:
+        bool: True if the user wants to restart the kernel, False otherwise.
+    """
+    restart_kernel = input("Do you want to restart the kernel? (yes/no): ").strip().lower()
+    return restart_kernel == 'yes'
+
 
    
 
