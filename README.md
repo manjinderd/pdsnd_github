@@ -24,5 +24,9 @@ The analysis helps understand usage patterns and can be used to improve city bik
 
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+This project was inspired by UDACITY and various open-source contributions and blog posts related to data analysis and bikeshare systems. 
+
+- **[Pandas Documentation](https://pandas.pydata.org/pandas-docs/stable/)**
+- **[Numpy Documentation](https://numpy.org/doc/stable/)**
+- **[Analyzing Bike Share Data with Python](https://towardsdatascience.com/analyzing-bike-share-data-with-python-5f91d8d0f12b)**
 
