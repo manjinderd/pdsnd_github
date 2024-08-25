@@ -30,3 +30,6 @@ This project was inspired by UDACITY and various open-source contributions and b
 - **[Numpy Documentation](https://numpy.org/doc/stable/)**
 - **[Analyzing Bike Share Data with Python](https://towardsdatascience.com/analyzing-bike-share-data-with-python-5f91d8d0f12b)**
 
+### License
+This project is a public domain work. Feel free to use it.
+
