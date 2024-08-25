@@ -16,7 +16,12 @@ The analysis helps understand usage patterns and can be used to improve city bik
 
 
 ### Files used
-Include the files used
+- `bikeshare_analysis.py`: The main Python script used for data analysis. This script handles data loading, filtering, and statistical analysis.
+- `chicago.csv`: CSV file containing bikeshare data for Chicago. Includes details such as start time, end time, start station, end station, and trip duration.
+- `new_york_city.csv`: CSV file containing bikeshare data for New York City, formatted similarly to `chicago.csv`.
+- `washington.csv`: CSV file containing bikeshare data for Washington, formatted similarly to `chicago.csv`.
+- `README.md`: This documentation file which provides an overview of the project, installation instructions, usage details, and other relevant information.
+
 
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
