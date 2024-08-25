@@ -11,36 +11,42 @@ CITY_DATA = {
 def get_filters():
     """
     Prompts the user for city, month, and day input to filter bikeshare data.
+
     Returns:
         city (str): The name of the city to analyze.
         month (str): The month to filter by, or "all" for no filter.
         day (str): The day of the week to filter by, or "all" for no filter.
     """
     print("Hello! Ready to dig into some bikeshare data?")
-
-    while True:
-        city = input("Choose a city: Chicago, New York City, or Washington: ").strip().lower()
-        if city in CITY_DATA:
-            break
-        else:
-            print("Oops! That's not a valid option. Please try again.")
-
-    while True:
-        month = input("Which month? January to June, or type 'all' for no month filter: ").strip().lower()
-        if month in ['january', 'february', 'march', 'april', 'may', 'june', 'all']:
-            break
-        else:
-            print("Invalid month. Please try again.")
-
-    while True:
-        day = input("Which day? Monday to Sunday, or type 'all' for no day filter: ").strip().lower()
-        if day in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']:
-            break
-        else:
-            print("Invalid day. Please try again.")
+    
+    city = get_user_input("city", CITY_DATA.keys(), "Choose a city: Chicago, New York City, or Washington: ")
+    month = get_user_input("month", ['january', 'february', 'march', 'april', 'may', 'june', 'all'], 
+                           "Which month? January to June, or type 'all' for no month filter: ")
+    day = get_user_input("day", ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all'], 
+                         "Which day? Monday to Sunday, or type 'all' for no day filter: ")
 
     print('-' * 40)
     return city, month, day
+
+def get_user_input(input_type, valid_options, prompt_message):
+    """
+    Prompts the user for input and validates it.
+
+    Args:
+        input_type (str): Type of input (e.g., 'city', 'month', 'day').
+        valid_options (list or set): A list or set of valid input options.
+        prompt_message (str): The message to display when prompting the user.
+
+    Returns:
+        str: The validated user input.
+    """
+    while True:
+        user_input = input(prompt_message).strip().lower()
+        if user_input in valid_options:
+            return user_input
+        else:
+            print(f"Invalid {input_type}. Please try again.")
+
 
 
 def load_data(city, month, day):
